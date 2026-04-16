@@ -111,8 +111,8 @@
         <div class="card">
             <h2>Atelier 4</h2>
             <p>Stocker des Données sur un fichier text</p>
-            <a href="public/Rapport4">Voir Rapport</a>
-            <a href="https://github.com/Oussama-Laaziz07/Atelier_3.git">Github Repo</a>
+            <a href="/Rapport4.pdf">Voir Rapport</a>
+            <a href="https://github.com/Oussama-Laaziz07/Atelier-4.git">Github Repo</a>
         </div>
     </div>
     <div class="portfolio">
