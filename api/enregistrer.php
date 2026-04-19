@@ -19,7 +19,12 @@
 </head>
  <body>
     <?php
-    include_once 'traitements.php'
+    include_once 'traitements.php';
+    session_start();
+    if(empty($_SESSION['slogin'])){
+      header("Location : enregistrer.php");
+    }
+    $login=$_SESSION['slogin'];
     ?>
     <div class="container sticky-top">
   <header>
@@ -80,9 +85,11 @@
      <button type="reset" class="btn btn-outline-light">Annuler</button>
     </form>
   </div>
+  <a href="deconnexion.php">Déconnexion</a>
 </section>
-<?php      
-if(!empty($_POST['Enregistrer'])){
+</div>
+<?php
+  if(!empty($_POST['Enregistrer'])){
     $nom=$_POST['nom'];
     $prenom=$_POST['prenom'];
     $ville=$_POST['ville'];
@@ -93,7 +100,6 @@ if(!empty($_POST['Enregistrer'])){
 }
 
 ?>
-</div>
 <footer>
  <div class="container m-5 mx-auto text-center" style="background-color: #444">
                <h3 style="font-family:Georgia" class="text-white">TDM-Classroom <span style="color:orange;font-size:50">.</span></h3>

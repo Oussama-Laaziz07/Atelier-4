@@ -217,7 +217,16 @@
                 <h2>Atelier 4</h2>
                 <p>Système de persistance de données via fichiers textes et génération de rapports techniques PDF.</p>
                 <div class="links">
-                    <a href="/Rapport4.pdf" target="_blank" class="btn btn-primary">Rapport PDF</a>
+                    <a href="rapp4.pdf" target="_blank" class="btn btn-primary">Rapport PDF</a>
+                    <a href="https://github.com/Oussama-Laaziz07/Atelier-4.git" class="btn btn-secondary">GitHub</a>
+                </div>
+            </div>
+            <div class="card">
+                <h2>Atelier 5</h2>
+                <p>Système de persistance de données via fichiers textes et génération de rapports techniques PDF.</p>
+                <div class="links">
+                    <a href="rapp5.pdf" class="btn btn-primary">Rapport PDF</a>
+                    <a href="accueil.php" target="_blank" class="btn btn-primary">Voir l'atelier</a>
                     <a href="https://github.com/Oussama-Laaziz07/Atelier-4.git" class="btn btn-secondary">GitHub</a>
                 </div>
             </div>

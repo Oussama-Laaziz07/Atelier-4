@@ -16,7 +16,38 @@
 </head>
  <body>
     <?php
-    include_once 'traitements.php'
+    include_once 'traitements.php';
+    $login='';
+    $pass='';
+    if(!empty($_POST['conn'])){
+     $login=$_POST['login'];
+     $pass=$_POST['pass'];
+    $r=authentification($login,$pass);
+    if($r==0){
+        echo "<h1 align='center' style='color:red'>Login ou password Incorrect !!!</h1>";
+    }
+    else{
+        session_start();
+        $_SESSION['slogin']=$login;
+        $_SESSION['spass']=$pass;
+    if($r==1 && !empty($_POST['remember'])){
+        setcookie("username", $login, time()+30);
+        setcookie("password", $pass, time()+30);
+        header("Location: enregistrer.php");
+    }
+    if($r==1 && empty($_POST['remember'])){
+        header("Location: enregistrer.php");
+    }
+       }
+    }
+    else{
+     if (isset($_COOKIE['login'])){
+        $login=$_COOKIE['login'];
+      }
+      if(isset($_COOKIE['pass'])){
+        $pass=$_COOKIE['pass'];
+      }
+    }
     ?>
     <div class="container sticky-top">
   <header>
@@ -62,30 +93,18 @@
     <form action="accueil.php"   method="POST">
       <div class="form-group">
         <label>Login:</label>
-        <input name="login" type="text" class="form-control" value=""  placeholder="Login ">
+        <input name="login" type="text" class="form-control" value="<?=$login?>"   placeholder="Login ">
           </div>
       <div class="form-group">
         <label>Password:</label>
-        <input name="pass" type="password" class="form-control"  value="" >
+        <input name="pass" type="password" class="form-control" value="<?=$pass?>" >
       </div>
+      <input type="checkbox" name="remember"  value="remember"/>Remember me
         <input type="submit" name="conn" class="btn btn-outline-light" value="Connexion"/>
      <button type="reset" class="btn btn-outline-light">Annuler</button>
    
     </form>
   </div>
-    <?php
-    if(!empty($_POST['conn'])){
-     $login=$_POST['login'];
-     $pass=$_POST['pass'];
-    $r=authentification($login,$pass);
-    if($r==0){
-        echo "<h1 align='center' style='color:red'>Login ou password Incorrect !!!</h1>";
-    }
-    else{
-        header("Location: enregistrer.php");
-    }
-    }
-    ?>
 </section>
 </div>
 <footer>

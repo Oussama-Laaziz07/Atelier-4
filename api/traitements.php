@@ -52,13 +52,42 @@ function Display(){
         <?php
 } 
 function getStudentsUsingCity($v){
-   $v=fopen("students.txt","r");
-        while(!feof($v)){
-            $line=fgets($v);
+     ?>
+    <div class="container mt-4">
+            <div class="row">
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Nom</th>
+                      <th>Prénom</th>
+                      <th>Ville</th>
+                      <th>Photo</th>
+                    
+                    </tr>
+                  </thead>
+                  <tbody>
+                <?php
+         $f=fopen("students.txt","r");
+           while(!feof($f)){
+            $line=fgets($f);
             if($line!=""){
                 $infos =explode("-", $line); 
-               echo "<p>$infos[2]</p>"; 
+               if (trim(strtolower($infos[2])) == trim(strtolower($v))) {
+                echo "<tr>";
+                echo "<td>$infos[0]</td>";
+                echo "<td>$infos[1]</td>";
+                echo "<td>$infos[2]</td>";
+                echo "<td><img src='$infos[3]' width='100' height='100' /></td>";
+                echo "</tr>"; 
             }
+       }
+    } 
+    fclose($f);
+    ?> 
+    </tbody>
+                </table>
+            </div>
+        </div>
+   <?php
 }
-} 
 ?>
